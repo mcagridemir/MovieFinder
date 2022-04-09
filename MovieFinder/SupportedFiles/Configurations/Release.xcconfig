@@ -8,7 +8,7 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-BUNDLE_NAME = MovieWorld
+BUNDLE_NAME = MovieFinder
 API_BASE2 = omdbapi.com/
 API_KEY = 6b6de276
 PRODUCT_BUNDLE_IDENTIFIER = com.moviefinder.ios

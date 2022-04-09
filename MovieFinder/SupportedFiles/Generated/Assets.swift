@@ -26,6 +26,7 @@ internal enum Assets {
     internal enum Icons {
       internal static let arrow = ImageAsset(name: "arrow")
       internal static let backArrow = ImageAsset(name: "back-arrow")
+      internal static let blackSearch = ImageAsset(name: "black-search")
       internal static let checkmark = ImageAsset(name: "checkmark")
       internal static let error = ImageAsset(name: "error")
       internal static let goBack = ImageAsset(name: "go-back")

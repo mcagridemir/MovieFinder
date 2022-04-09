@@ -8,6 +8,7 @@ target 'MovieFinder' do
   # Pods for MovieFinder
   pod 'Moya', '~> 14.0.0'
   pod 'SwiftGen', '~> 6.5.0'
+  pod 'SwiftLint', '~> 0.43.1'
   pod 'SwiftyUserDefaults', '~> 5.0'
   pod 'IQKeyboardManagerSwift', '~> 6.5.6'
   pod 'Localize-Swift', '~> 3.2.0'
@@ -18,6 +19,9 @@ target 'MovieFinder' do
   pod 'FittedSheets', '2.4.0'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
+  pod 'Firebase'
+  pod 'Firebase/Core', '~> 8.12.1'
+  pod 'Firebase/RemoteConfig', '~> 8.12.0'
 
   target 'MovieFinderTests' do
     inherit! :search_paths

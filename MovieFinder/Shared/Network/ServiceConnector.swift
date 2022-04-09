@@ -5,8 +5,8 @@
 //  Created by Çağrı Demir on 9.04.2022.
 //
 
-import Moya
 import Alamofire
+import Moya
 
 enum Services {
     case Get(UrlPrefix: String? = nil, page: Int? = nil)
@@ -17,6 +17,10 @@ class ServiceConnector: NSObject {
     static let shared = ServiceConnector()
     let connectivityGroup = DispatchGroup()
     
+    var isConnectedToInternet: Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
+    
     let endpointClosure = { (target: Services) -> Endpoint in
         
         print("baseURL:\(target.baseURL)\n path:\(target.path)")
@@ -25,7 +29,7 @@ class ServiceConnector: NSObject {
         
         print("url:\(url)")
         
-        let endpoint = Endpoint (
+        let endpoint = Endpoint(
             url: url,
             sampleResponseClosure: { .networkResponse(200, target.sampleData) },
             method: target.method,

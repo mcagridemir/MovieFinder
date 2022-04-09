@@ -11,3 +11,6 @@
 "Warning" = "Warning";
 "error" = "Error";
 "movie_finder" = "Movie Finder";
+
+// MARK: - Splash
+"connection_error" = "You do not have an internet connection right now! Please try again.";

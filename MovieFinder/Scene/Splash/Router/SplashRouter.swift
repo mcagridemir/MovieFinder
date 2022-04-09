@@ -14,4 +14,9 @@ class SplashRouter {
         window.rootViewController = UINavigationController(rootViewController: vc)
         window.makeKeyAndVisible()
     }
+    
+    class func showHomepage(nav: UINavigationController?) {
+        guard let vc = StoryboardRedirect.Home.instance.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else { return }
+        nav?.show(vc, sender: nav?.parent)
+    }
 }
