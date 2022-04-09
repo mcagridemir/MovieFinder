@@ -1,0 +1,14 @@
+//
+//  Staging.xcconfig
+//  MovieFinder
+//
+//  Created by Çağrı Demir on 9.04.2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BUNDLE_NAME = MovieWorld Stg
+API_BASE2 = omdbapi.com/
+API_KEY = 6b6de276
+PRODUCT_BUNDLE_IDENTIFIER = com.moviefinder.iosstg

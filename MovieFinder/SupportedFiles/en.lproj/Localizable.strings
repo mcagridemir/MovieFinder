@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  MovieFinder
+
+  Created by Çağrı Demir on 9.04.2022.
+  
+*/
+
+// MARK: - Common
+"successful" = "Successful";
+"Warning" = "Warning";
+"error" = "Error";
+"movie_finder" = "Movie Finder";
