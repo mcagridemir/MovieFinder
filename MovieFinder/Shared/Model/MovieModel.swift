@@ -6,3 +6,33 @@
 //
 
 import Foundation
+
+// MARK: - MovieModel
+struct MovieModel: Codable {
+    let movies: [Movie]?
+    let totalResults: String?
+
+    enum CodingKeys: String, CodingKey {
+        case movies = "Search"
+        case totalResults
+    }
+}
+
+// MARK: - Search
+struct Movie: Codable, Equatable {
+    let title, year, imdbID: String?
+    let type: String?
+    let poster: String?
+    let released, plot, imdbRating: String?
+
+    enum CodingKeys: String, CodingKey {
+        case title = "Title"
+        case year = "Year"
+        case imdbID
+        case type = "Type"
+        case poster = "Poster"
+        case released = "Released"
+        case plot = "Plot"
+        case imdbRating
+    }
+}

@@ -16,6 +16,12 @@ internal enum LocalizationKeys {
   internal static var error: String { return LocalizationKeys.tr("Localizable", "error") }
   /// Movie Finder
   internal static var movieFinder: String { return LocalizationKeys.tr("Localizable", "movie_finder") }
+  /// %@ movies found.
+  internal static func moviesFound(_ p1: Any) -> String {
+    return LocalizationKeys.tr("Localizable", "movies_found", String(describing: p1))
+  }
+  /// Looking for something?
+  internal static var searchPlaceholder: String { return LocalizationKeys.tr("Localizable", "search_placeholder") }
   /// Successful
   internal static var successful: String { return LocalizationKeys.tr("Localizable", "successful") }
   /// Warning

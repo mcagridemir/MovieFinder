@@ -14,3 +14,7 @@
 
 // MARK: - Splash
 "connection_error" = "You do not have an internet connection right now! Please try again.";
+
+// MARK: - Home
+"movies_found" = "%@ movies found.";
+"search_placeholder" = "Looking for something?";

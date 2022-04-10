@@ -22,6 +22,7 @@ class SplashViewController: UIViewController {
             success()
         } else {
             Alert.error(title: "", text: LocalizationKeys.connectionError.localized)
+            self.splashLabel.text = LocalizationKeys.connectionError.localized
         }
     }
     

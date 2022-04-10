@@ -50,7 +50,9 @@
 		5F803C5C2802323B006CD6D8 /* STG-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F803C5B2802323A006CD6D8 /* STG-GoogleService-Info.plist */; };
 		5F803C5E28023293006CD6D8 /* PROD-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F803C5D28023293006CD6D8 /* PROD-GoogleService-Info.plist */; };
 		5F803C62280239CF006CD6D8 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F803C61280239CF006CD6D8 /* FirebaseManager.swift */; };
-		5F803C6428024CF4006CD6D8 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F803C6328024CF3006CD6D8 /* ResultsViewController.swift */; };
+		5F803C6A28025A32006CD6D8 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F803C6828025A32006CD6D8 /* MovieTableViewCell.swift */; };
+		5F803C6B28025A32006CD6D8 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F803C6928025A32006CD6D8 /* MovieTableViewCell.xib */; };
+		5F803C6D28025FF8006CD6D8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F803C6C28025FF8006CD6D8 /* Utilities.swift */; };
 		7A5506EA12D4F0C6BC296FBF /* Pods_MovieFinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D2D12FEEE76BFF296E2138 /* Pods_MovieFinderTests.framework */; };
 		AE982346BEDD1F4F02D4F2DA /* Pods_MovieFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9773F0CF512A611093A87375 /* Pods_MovieFinder.framework */; };
 		CF90F2E3134EF5DC717187E7 /* Pods_MovieFinder_MovieFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8289DD2DC079EE0686E4EE1 /* Pods_MovieFinder_MovieFinderUITests.framework */; };
@@ -127,7 +129,9 @@
 		5F803C5B2802323A006CD6D8 /* STG-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "STG-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5F803C5D28023293006CD6D8 /* PROD-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PROD-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5F803C61280239CF006CD6D8 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		5F803C6328024CF3006CD6D8 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		5F803C6828025A32006CD6D8 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		5F803C6928025A32006CD6D8 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		5F803C6C28025FF8006CD6D8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6ACA2A855F70DD5A5CA57B0F /* Pods-MovieFinder-MovieFinderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieFinder-MovieFinderUITests.release.xcconfig"; path = "Target Support Files/Pods-MovieFinder-MovieFinderUITests/Pods-MovieFinder-MovieFinderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A99E426DC6AC9512F0663A3 /* Pods-MovieFinder-MovieFinderUITests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieFinder-MovieFinderUITests.development.xcconfig"; path = "Target Support Files/Pods-MovieFinder-MovieFinderUITests/Pods-MovieFinder-MovieFinderUITests.development.xcconfig"; sourceTree = "<group>"; };
 		8D663A7B64421E01B539AC21 /* Pods-MovieFinderTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieFinderTests.development.xcconfig"; path = "Target Support Files/Pods-MovieFinderTests/Pods-MovieFinderTests.development.xcconfig"; sourceTree = "<group>"; };
@@ -321,8 +325,8 @@
 		5F35290C2801DF0A001D92DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5F803C6628025A12006CD6D8 /* TableView */,
 				5F3529622801F403001D92DE /* HomeViewController.swift */,
-				5F803C6328024CF3006CD6D8 /* ResultsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -330,6 +334,7 @@
 		5F35290D2801DF0C001D92DE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5F803C6728025A17006CD6D8 /* TableView */,
 				5F3529602801F3F9001D92DE /* Home.storyboard */,
 			);
 			path = View;
@@ -414,6 +419,7 @@
 				5F3529262801E2B2001D92DE /* Loader.swift */,
 				5F3529282801E2BA001D92DE /* Alert.swift */,
 				5F35296C2801F8CB001D92DE /* Helper.swift */,
+				5F803C6C28025FF8006CD6D8 /* Utilities.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -480,6 +486,22 @@
 				5F803C61280239CF006CD6D8 /* FirebaseManager.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		5F803C6628025A12006CD6D8 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				5F803C6828025A32006CD6D8 /* MovieTableViewCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		5F803C6728025A17006CD6D8 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				5F803C6928025A32006CD6D8 /* MovieTableViewCell.xib */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		B496267D94623C009C9AE308 /* Frameworks */ = {
@@ -626,6 +648,7 @@
 				5F3529652801F40F001D92DE /* Detail.storyboard in Resources */,
 				5F3529502801F29D001D92DE /* swiftgen.yml in Resources */,
 				5F3529472801E452001D92DE /* Localizable.strings in Resources */,
+				5F803C6B28025A32006CD6D8 /* MovieTableViewCell.xib in Resources */,
 				5F803C5C2802323B006CD6D8 /* STG-GoogleService-Info.plist in Resources */,
 				5F3528DF2801DC13001D92DE /* LaunchScreen.storyboard in Resources */,
 				5F3528DC2801DC13001D92DE /* Assets.xcassets in Resources */,
@@ -820,7 +843,6 @@
 				5F3529672801F41D001D92DE /* MovieDetailViewController.swift in Sources */,
 				5F35296D2801F8CB001D92DE /* Helper.swift in Sources */,
 				5F3529572801F3A9001D92DE /* SplashRouter.swift in Sources */,
-				5F803C6428024CF4006CD6D8 /* ResultsViewController.swift in Sources */,
 				5F3529232801E295001D92DE /* Bindable.swift in Sources */,
 				5F3529632801F403001D92DE /* HomeViewController.swift in Sources */,
 				5F35296A2801F72A001D92DE /* Assets.swift in Sources */,
@@ -832,7 +854,9 @@
 				5F3528D32801DC0C001D92DE /* AppDelegate.swift in Sources */,
 				5F803C62280239CF006CD6D8 /* FirebaseManager.swift in Sources */,
 				5F35292B2801E2CD001D92DE /* ServiceConnector.swift in Sources */,
+				5F803C6D28025FF8006CD6D8 /* Utilities.swift in Sources */,
 				5F35293D2801E34D001D92DE /* StoryboardRedirect.swift in Sources */,
+				5F803C6A28025A32006CD6D8 /* MovieTableViewCell.swift in Sources */,
 				5F35291D2801E27A001D92DE /* Extensions.swift in Sources */,
 				5F35296B2801F72A001D92DE /* Localization.swift in Sources */,
 				5F3529212801E28D001D92DE /* Enums.swift in Sources */,
