@@ -114,9 +114,10 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if (indexPath.row + 1 == viewModel.movies.value?.count ?? 0) && viewModel.isMore && !viewModel.shouldDisplayLoading {
+        if (indexPath.row + 1 == viewModel.movies.value?.count ?? 0) && viewModel.hasMore && !viewModel.shouldDisplayLoading {
             viewModel.shouldDisplayLoading = true
             getMovies(searchText: searchTextField.text ?? "", noLoading: true)
+            print("a: will display \(viewModel.currentMovieCount)")
         }
     }
     
