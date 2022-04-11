@@ -5,6 +5,7 @@
 //  Created by Çağrı Demir on 10.04.2022.
 //
 
+import Firebase
 import FirebaseRemoteConfig
 
 class FirebaseManager {
@@ -30,5 +31,9 @@ class FirebaseManager {
                 Alert.error(title: "", text: error.debugDescription)
             }
         }
+    }
+    
+    func trackScreen(viewController: String, params: [String: Any]) {
+        Analytics.logEvent(viewController, parameters: params)
     }
 }

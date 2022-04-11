@@ -24,6 +24,13 @@ struct Movie: Codable, Equatable {
     let type: String?
     let poster: String?
     let released, plot, imdbRating: String?
+    var posterX600: String? {
+        let posterText = poster?.replace(target: "X300", withString: "X600")
+        return posterText
+    }
+    var releasedDate: String? {
+        return Helper.formatDate(dateTxt: released ?? "", inputFormat: "dd MMM yyyy", outputFormat: "yyyy/MM/dd")
+    }
 
     enum CodingKeys: String, CodingKey {
         case title = "Title"

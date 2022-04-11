@@ -11,6 +11,8 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var warningLabel: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
     
     private let viewModel = HomeViewModel()
     
@@ -22,18 +24,25 @@ class HomeViewController: BaseViewController {
     
     private func initViews() {
         hideNavbar = true
+        warningLabel.text = LocalizationKeys.searchWarningEmpty.localized
         initSearchField()
         initTableView()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     private func initObservers() {
         viewModel.movies.bind { [weak self] _ in
             guard let self = self else { return }
             self.reloadData()
+            self.countLabel.isHidden = self.viewModel.currentMovieCount == 0
         }
-        viewModel.totalMovieCount.bind { [weak self] count in
-            guard let self = self else { return }
-            self.countLabel.text = LocalizationKeys.moviesFound(count ?? "0")
+        viewModel.totalMovieCount.bind { [weak self] countText in
+            guard let self = self, let count = Int(countText ?? "0") else { return }
+            self.countLabel.text = LocalizationKeys.moviesFound(countText ?? "0")
+            self.warningLabel.isHidden = !(count == 0 || self.viewModel.movies.value == nil)
+            self.tableView.isHidden = count == 0 || self.viewModel.movies.value == nil
+            self.warningLabel.text = (count == 0 || self.viewModel.movies.value == nil) ? LocalizationKeys.searchNoResult.localized : LocalizationKeys.searchWarningEmpty.localized
         }
         viewModel.isLoading.bind { isLoading in
             isLoading ?? false ? Loader.show() : Loader.hide()
@@ -66,6 +75,7 @@ class HomeViewController: BaseViewController {
         guard let text = textField.text else { return }
         if text.isEmpty {
             self.viewModel.removeMovies()
+            warningLabel.text = LocalizationKeys.searchWarningEmpty.localized
             reloadData()
         }
         
@@ -77,6 +87,18 @@ class HomeViewController: BaseViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    @IBAction func didCancelButtonTapped(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    @objc private func keyboardWillAppear() {
+        cancelButton.isUserInteractionEnabled = true
+    }
+
+    @objc private func keyboardWillDisappear() {
+        cancelButton.isUserInteractionEnabled = false
     }
 }
 
@@ -109,15 +131,14 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let movie = viewModel.movies.value?[indexPath.row] else { return }
-        HomeRouter.showDetail(id: movie.imdbID, nav: self.navigationController)
+        guard let movie = viewModel.movies.value?[indexPath.row], let id = movie.imdbID else { return }
+        HomeRouter.showDetail(id: id, nav: self.navigationController)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if (indexPath.row + 1 == viewModel.movies.value?.count ?? 0) && viewModel.hasMore && !viewModel.shouldDisplayLoading {
+        if (indexPath.row == (viewModel.movies.value?.count ?? 0) - 1) && viewModel.hasMore && !viewModel.shouldDisplayLoading {
             viewModel.shouldDisplayLoading = true
             getMovies(searchText: searchTextField.text ?? "", noLoading: true)
-            print("a: will display \(viewModel.currentMovieCount)")
         }
     }
     
@@ -126,7 +147,7 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
+        return .leastNonzeroMagnitude
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

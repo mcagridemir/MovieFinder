@@ -49,7 +49,7 @@ class BaseViewController: UIViewController {
         let titleLabel = UILabel()
         titleLabel.text = title.uppercased()
         titleLabel.textColor = Assets.Colors.ForegroundColors._2B2D42.color
-        titleLabel.font = UIFont.systemFont(ofSize: 15)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         self.navigationItem.titleView = titleLabel
     }
     

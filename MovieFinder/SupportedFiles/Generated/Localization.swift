@@ -12,6 +12,8 @@ import Foundation
 internal enum LocalizationKeys {
   /// You do not have an internet connection right now! Please try again.
   internal static var connectionError: String { return LocalizationKeys.tr("Localizable", "connection_error") }
+  /// Movie Detail
+  internal static var detailTitle: String { return LocalizationKeys.tr("Localizable", "detail_title") }
   /// Error
   internal static var error: String { return LocalizationKeys.tr("Localizable", "error") }
   /// Movie Finder
@@ -20,8 +22,12 @@ internal enum LocalizationKeys {
   internal static func moviesFound(_ p1: Any) -> String {
     return LocalizationKeys.tr("Localizable", "movies_found", String(describing: p1))
   }
+  /// No Result :(
+  internal static var searchNoResult: String { return LocalizationKeys.tr("Localizable", "search_no_result") }
   /// Looking for something?
   internal static var searchPlaceholder: String { return LocalizationKeys.tr("Localizable", "search_placeholder") }
+  /// Type something to see some movies.
+  internal static var searchWarningEmpty: String { return LocalizationKeys.tr("Localizable", "search_warning_empty") }
   /// Successful
   internal static var successful: String { return LocalizationKeys.tr("Localizable", "successful") }
   /// Warning

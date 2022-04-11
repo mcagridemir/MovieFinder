@@ -53,6 +53,7 @@
 		5F803C6A28025A32006CD6D8 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F803C6828025A32006CD6D8 /* MovieTableViewCell.swift */; };
 		5F803C6B28025A32006CD6D8 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F803C6928025A32006CD6D8 /* MovieTableViewCell.xib */; };
 		5F803C6D28025FF8006CD6D8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F803C6C28025FF8006CD6D8 /* Utilities.swift */; };
+		5F9ECB05280340CD00A2C84A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9ECB04280340CD00A2C84A /* DetailViewModel.swift */; };
 		7A5506EA12D4F0C6BC296FBF /* Pods_MovieFinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D2D12FEEE76BFF296E2138 /* Pods_MovieFinderTests.framework */; };
 		AE982346BEDD1F4F02D4F2DA /* Pods_MovieFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9773F0CF512A611093A87375 /* Pods_MovieFinder.framework */; };
 		CF90F2E3134EF5DC717187E7 /* Pods_MovieFinder_MovieFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8289DD2DC079EE0686E4EE1 /* Pods_MovieFinder_MovieFinderUITests.framework */; };
@@ -132,6 +133,7 @@
 		5F803C6828025A32006CD6D8 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		5F803C6928025A32006CD6D8 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		5F803C6C28025FF8006CD6D8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		5F9ECB04280340CD00A2C84A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		6ACA2A855F70DD5A5CA57B0F /* Pods-MovieFinder-MovieFinderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieFinder-MovieFinderUITests.release.xcconfig"; path = "Target Support Files/Pods-MovieFinder-MovieFinderUITests/Pods-MovieFinder-MovieFinderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A99E426DC6AC9512F0663A3 /* Pods-MovieFinder-MovieFinderUITests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieFinder-MovieFinderUITests.development.xcconfig"; path = "Target Support Files/Pods-MovieFinder-MovieFinderUITests/Pods-MovieFinder-MovieFinderUITests.development.xcconfig"; sourceTree = "<group>"; };
 		8D663A7B64421E01B539AC21 /* Pods-MovieFinderTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieFinderTests.development.xcconfig"; path = "Target Support Files/Pods-MovieFinderTests/Pods-MovieFinderTests.development.xcconfig"; sourceTree = "<group>"; };
@@ -272,7 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				5F3529072801DECD001D92DE /* Router */,
-				5F3529082801DED3001D92DE /* ViewModel */,
 				5F3529092801DED9001D92DE /* View */,
 				5F35290A2801DEDF001D92DE /* Controller */,
 			);
@@ -285,13 +286,6 @@
 				5F3529562801F3A9001D92DE /* SplashRouter.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		5F3529082801DED3001D92DE /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		5F3529092801DED9001D92DE /* View */ = {
@@ -385,6 +379,7 @@
 		5F3529132801DF50001D92DE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5F9ECB04280340CD00A2C84A /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -849,6 +844,7 @@
 				5F3529252801E2A0001D92DE /* Callback.swift in Sources */,
 				5F35293F2801E35D001D92DE /* BaseViewController.swift in Sources */,
 				5F35293B2801E341001D92DE /* BaseViewModel.swift in Sources */,
+				5F9ECB05280340CD00A2C84A /* DetailViewModel.swift in Sources */,
 				5F35292D2801E2D5001D92DE /* APIManager.swift in Sources */,
 				5F35292F2801E2E3001D92DE /* MovieRepo.swift in Sources */,
 				5F3528D32801DC0C001D92DE /* AppDelegate.swift in Sources */,

@@ -127,10 +127,11 @@ extension Services: TargetType {
     var path: String {
         switch self {
         case let .Get(UrlPrefix, page):
+            let urlPrefix = UrlPrefix?.filter {!$0.isWhitespace}
             if let page = page {
-                return "?apikey=\(Globals.shared.apiKey)&s=\(UrlPrefix ?? "")&page=\(page)"
+                return "?apikey=\(Globals.shared.apiKey)&s=\(urlPrefix ?? "")&page=\(page)"
             }
-            return "?apikey=\(Globals.shared.apiKey)&s=\(UrlPrefix ?? "")"
+            return "?apikey=\(Globals.shared.apiKey)&i=\(urlPrefix ?? "")"
         }
     }
     

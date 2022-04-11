@@ -17,7 +17,63 @@ class MovieFinderTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
+    func testData() throws {
+        let id = "tt1201607"
+        var movies: [Movie]?
+        var moviesList = [Movie]()
+        var movies2Times: [Movie]?
+        var movie: Movie?
+        let query = "harry"
+        
+        let moviesExp = expectation(description: "movies")
+        let moviesExp2 = expectation(description: "movies 2")
+        let movieExp = expectation(description: "movie")
+        
+        getMovies(query: query, page: 1) { [weak self] response in
+            guard let self = self else { return }
+            if let results = response.movies {
+                moviesList.append(contentsOf: results)
+                movies = moviesList
+                movies2Times = moviesList
+                moviesExp.fulfill()
+                self.getMovies(query: query,page: 2) { response in
+                    if let results = response.movies {
+                        moviesList.append(contentsOf: results)
+                        movies2Times = moviesList
+                        moviesExp2.fulfill()
+                        getMovie()
+                    }
+                }
+            }
+        }
+        
+        func getMovie() {
+            MovieRepo.getMovie(id: id) { response in
+                movie = response
+                movieExp.fulfill()
+            } failure: { error in
+                print(error.rawValue)
+            }
+        }
+        
+        waitForExpectations(timeout: 10) { error in
+            print(error.debugDescription)
+        }
+        
+        XCTAssertEqual(movies?.count ?? 0, 10, "Count of movies must be 10.")
+        XCTAssertLessThanOrEqual(movies2Times?.count ?? 0, 20, "Count of total of 2 pages of movies must be 20.")
+        XCTAssertEqual(movie?.imdbID ?? "", id, "Movie id must be tt1201607")
+    }
+    
+    func getMovies(query: String, page: Int, success: @escaping(_ response: MovieModel) -> Void) {
+        MovieRepo.getMovies(urlPrefix: query, page: page) { response in
+            success(response)
+        } failure: { error in
+            print(error.rawValue)
+        }
+    }
+    
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

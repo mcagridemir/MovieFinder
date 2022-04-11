@@ -22,6 +22,7 @@ target 'MovieFinder' do
   pod 'Firebase'
   pod 'Firebase/Core', '~> 8.12.1'
   pod 'Firebase/RemoteConfig', '~> 8.12.0'
+  pod 'Firebase/Messaging', '~> 8.12.1'
 
   target 'MovieFinderTests' do
     inherit! :search_paths
