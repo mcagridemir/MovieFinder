@@ -11,6 +11,10 @@ import FirebaseCore
 import FirebaseMessaging
 import IQKeyboardManagerSwift
 
+// FIREBASE ACCOUNT CREDENTIALS
+// email: cagri.case@gmail.com
+// password: !Aa12345.
+
 // I did what I should do but unfortunately, I have no Apple Developer account so I could not complete the Push Notification journey.
 
 // 1- After Firebase integration reaching console and importing Google-Service-Info.plist to project etc. and conforming UNUserNotificationCenterDelegate to AppDelegate and adding these methods below in line 41, we should Push Notification as a Capability from main project folder(MovieFinder) Signing & Capabilities from target of project.

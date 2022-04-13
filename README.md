@@ -11,6 +11,12 @@ A sample app to experiment with:
 - SwiftLint
 - SkeletonView
 
+FIREBASE ACCOUNT CREDENTIALS
+email: cagri.case@gmail.com
+password: !Aa12345.
+
+Push Notification Integration steps are in AppDelegate.(Lines 14-26)
+
 ![alt text](https://github.com/mcagridemir/MovieFinder/blob/f681ed2b97b5ae67732a9adf27bc0bdb830a8ec8/Screenshots/0LaunchScreen.png)
 
 ![alt text](https://github.com/mcagridemir/MovieFinder/blob/f681ed2b97b5ae67732a9adf27bc0bdb830a8ec8/Screenshots/1Splash.png)
